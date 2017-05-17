@@ -1,0 +1,21 @@
+<extension>
+  <modules>
+    <module>
+      <id>book-management-site-ui - Dashlets and Widgets</id>
+      <version>1.0</version>
+      <auto-deploy>true</auto-deploy>
+      <configurations>
+        <config evaluator="string-compare" condition="WebFramework" replace="false">
+          <web-framework>
+            <dojo-pages>
+              <packages>
+                <package name="bestpubdashlets" location="resources/book-management-site-ui/js/bestpub/dashlets"/>
+                <package name="bestpubwidgets" location="resources/book-management-site-ui/js/bestpub/widgets"/>
+              </packages>
+            </dojo-pages>
+          </web-framework>
+        </config>
+      </configurations>
+    </module>
+  </modules>
+</extension>

@@ -1,0 +1,6 @@
+<webscript>
+    <shortname>Book Status Page</shortname>
+    <description>Book Status page showing progress of managed books</description>
+    <family>Share</family>
+    <url>/best-publishing/book-status</url>
+</webscript>

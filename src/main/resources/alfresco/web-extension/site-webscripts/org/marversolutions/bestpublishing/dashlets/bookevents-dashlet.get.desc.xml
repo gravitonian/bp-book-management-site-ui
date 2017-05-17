@@ -1,0 +1,6 @@
+<webscript>
+    <shortname>Book Events Dashlet</shortname>
+    <description>An Aikau dashlet that displays Best Publishing book events</description>
+    <family>dashlet</family>
+    <url>/best-publishing/book-events</url>
+</webscript>
