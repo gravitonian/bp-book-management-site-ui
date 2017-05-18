@@ -3,7 +3,7 @@ model.jsonModel = {
         id: "SET_PAGE_TITLE",
         name: "alfresco/header/SetTitle",
         config: {
-            title: "Book Status"
+            title: "Book Management - Status"
         }
     },
         {

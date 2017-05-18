@@ -9,7 +9,7 @@ model.jsonModel = {
     widgets: [
         {
             id: "BOOKEVENTS_DASHLET",
-            name: "bestpubwidgets/BookEventsDashlet"
+            name: "bestpubdashlets/BookEventsDashlet"
         }
     ]
 };
