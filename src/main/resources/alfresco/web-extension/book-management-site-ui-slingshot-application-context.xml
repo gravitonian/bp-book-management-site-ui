@@ -31,15 +31,4 @@
    <!-- Check if the metadata has been updated since the last published date -->
    <bean id="evaluator.doclib.indicator.isMetadataUpdated"
          class="org.acme.bestpublishing.evaluators.CheckMetadataUpdates" />
-
-   <!-- Alfresco Repo Action used to create/add chapter folders -->
-   <!-- TODO: need to go into Platform JAR book-management-site-actions -->
-   <bean id="uk.co.tandf.bopp.actions.createChapterAction"
-         class="uk.co.tandf.bopp.actions.CreateChapterAction"
-         parent="action-executer">
-      <property name="boppUtilsService" ref="uk.co.tandf.bopp.services.boppUtilsService" />
-      <property name="workflowUtilsService" ref="uk.co.tandf.bopp.services.workflowUtilsService"/>
-      <property name="fileFolderService" ref="FileFolderService"/>
-      <property name="nodeService" ref="NodeService"/>
-   </bean>
 </beans>

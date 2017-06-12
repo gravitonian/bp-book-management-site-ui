@@ -70,7 +70,7 @@
     YAHOO.Bubbling.fire("registerAction",
         {
             actionName: "onDeleteChapter",
-            fn: function ixxus_onDeleteChapter(chapterFolder) {
+            fn: function bestpub_onDeleteChapter(chapterFolder) {
                 var zIndex = 0;
                 var _this = this; // outer alfresco scope (with access to msg, modules etc)
 
@@ -83,15 +83,15 @@
                         buttons: [
                             {
                                 text: this.msg("button.delete"),
-                                handler: function ixxus_onDeleteChapter_delete()
+                                handler: function bestpub_onDeleteChapter_delete()
                                 {
                                     this.destroy();
-                                    ixxus_onDeleteChapter_callWebScript2DeleteChapter(chapterFolder, _this);
+                                    bestpub_onDeleteChapter_callWebScript2DeleteChapter(chapterFolder, _this);
                                 }
                             },
                             {
                                 text: this.msg("button.cancel"),
-                                handler: function ixxus_onDeleteChapter_cancel()
+                                handler: function bestpub_onDeleteChapter_cancel()
                                 {
                                     this.destroy();
                                 },
@@ -103,12 +103,12 @@
 
     /**
      * This function makes the call to a web script that will delete the passed in chapter folder,
-     * and re-arrange the other chapter folders accordingly.
+     * and re-order the other chapter folders accordingly.
      *
      * @param chapterFolder the chapter folder object that should be deleted
      * @param _this outer alfresco scope (with access to msg, modules etc)
      */
-    function ixxus_onDeleteChapter_callWebScript2DeleteChapter(chapterFolder, _this)
+    function bestpub_onDeleteChapter_callWebScript2DeleteChapter(chapterFolder, _this)
     {
         var path = chapterFolder.location.path;
         var fileName = chapterFolder.location.file;
@@ -127,7 +127,7 @@
             {
                 webscript:
                 {
-                    name: "bopp/deleteChapterFolder?nodeRef={nodeRef}",
+                    name: "bestpub/deleteChapterFolder?nodeRef={nodeRef}",
                     stem: Alfresco.constants.PROXY_URI,
                     method: Alfresco.util.Ajax.GET,
                     params:
@@ -139,7 +139,7 @@
                 {
                     callback:
                     {
-                        fn : function ixxus_onDeleteChapter_success(data) {
+                        fn : function bestpub_onDeleteChapter_success(data) {
                             progressPopup.destroy();
                             var resultJson = YAHOO.lang.JSON.parse(data.serverResponse.responseText);
                             var success = resultJson.success;
@@ -167,7 +167,7 @@
                 failure:
                 {
                     callback: {
-                        fn : function ixxus_onDeleteChapter_failure(data){
+                        fn : function bestpub_onDeleteChapter_failure(data){
                             progressPopup.destroy();
                             Alfresco.util.PopupManager.displayMessage({
                                 text: _this.msg("message.delete-chapter-folder.failure", displayName)
