@@ -1,33 +1,43 @@
 (function() {
-
     YAHOO.Bubbling.fire("registerAction",
     {
         actionName: "onActionPublishToWeb",
-        fn: function marversolutions_onActionPublishToWeb(book) {
+        fn: function marversolutions_onActionPublishToWeb(bookFolder) {
         	
         	var progressPopup = Alfresco.util.PopupManager.displayMessage(
                     {
                        displayTime: 0,
                        effect: null,
-                       text: this.msg("message.publish-web.waiting", book.displayName)
+                       text: this.msg("message.publish-web.waiting", bookFolder.displayName)
                     });
         	
         	this.modules.actions.genericAction(
             {
+                webscript:
+                {
+                    name: "bestpub/publishBookToWeb?nodeRef={nodeRef}",
+                    stem: Alfresco.constants.PROXY_URI,
+                    method: Alfresco.util.Ajax.GET,
+                    params:
+                    {
+                        nodeRef: bookFolder.nodeRef,
+                        bookIsbn: bookFolder.displayName
+                    }
+                },
                 success:
                 {
                 	callback: {
-                        fn : function DL_oAN_success(data){
+                        fn : function bestpub_onPublishBook_success(data) {
                         	progressPopup.destroy();
                             var resultJson = YAHOO.lang.JSON.parse(data.serverResponse.responseText);
-                            var published = resultJson.published;
-                            if (published)
+                            var publishingInitiated = resultJson.publishingInitiated;
+                            if (publishingInitiated)
                                 Alfresco.util.PopupManager.displayMessage({
-                                    text: this.msg("message.publish-web.success.published", book.displayName)
+                                    text: this.msg("message.publish-web.success", bookFolder.displayName)
                                 });
                             else
                                 Alfresco.util.PopupManager.displayMessage({
-                                    text: this.msg("message.publish-web.success.not.published", book.displayName)
+                                    text: this.msg("message.publish-web.failure", bookFolder.displayName)
                                 });
                         },
                         event: { name: "metadataRefresh" },
@@ -37,32 +47,17 @@
                 failure:
                 {
                 	callback: {
-                        fn : function DL_oAN_failure(data){
+                        fn : function bestpub_onPublishBook_failure(data) {
                         	progressPopup.destroy();
                             Alfresco.util.PopupManager.displayMessage({
-                            	text: this.msg("message.publish-web.failure", book.displayName)
+                            	text: this.msg("message.publish-web.failure", bookFolder.displayName)
                             });
                             
                         },
                         event: { name: "metadataRefresh" },
                         scope : this
                     }
-                },
-                webscript:
-                {
-                    name: "bestpub/publishBookToWeb?nodeRef={nodeRef}",
-                    stem: Alfresco.constants.PROXY_URI,
-                    method: Alfresco.util.Ajax.GET,
-                    params:
-                    {
-                        nodeRef: book.nodeRef,
-                        bookIsbn: book.displayName
-                    }
-                },
-                config:
-                {
                 }
-
             });
         }
     });

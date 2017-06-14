@@ -116,21 +116,20 @@
                 <param name="function">onActionPublishToWeb</param>
                 <param name="successMessage">message.publish-web.success</param>
                 <param name="failureMessage">message.publish-web.failure</param>
-                <evaluator>evaluator.doclib.bestpub.bookFolderType</evaluator>
-                <evaluator>evaluator.doclib.bestpub.bookFolderPublished</evaluator>
+                <evaluator>evaluator.doclib.metadata.isProcessingComplete</evaluator>
                 <evaluator>evaluator.doclib.indicator.isMetadataUpdated</evaluator>
             </action>
         </actions>
         <actionGroups>
             <actionGroup id="folder-browse">
-                <action index="700" id="bestpub.doclib.action.publishContentToWeb"/>
-                <action index="701" id="bestpub.doclib.action.createChapterFolder"/>
-                <action index="702" id="bestpub.doclib.action.deleteChapterFolder"/>
+                <action index="700" id="bestpub.doclib.action.createChapterFolder"/>
+                <action index="701" id="bestpub.doclib.action.deleteChapterFolder"/>
+                <action index="702" id="bestpub.doclib.action.publishContentToWeb"/>
             </actionGroup>
             <actionGroup id="folder-details">
-                <action index="700" id="bestpub.doclib.action.publishContentToWeb"/>
-                <action index="701" id="bestpub.doclib.action.createChapterFolder"/>
-                <action index="702" id="bestpub.doclib.action.deleteChapterFolder"/>
+                <action index="700" id="bestpub.doclib.action.createChapterFolder"/>
+                <action index="701" id="bestpub.doclib.action.deleteChapterFolder"/>
+                <action index="702" id="bestpub.doclib.action.publishContentToWeb"/>
             </actionGroup>
         </actionGroups>
     </config>

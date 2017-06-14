@@ -23,7 +23,7 @@
         <!-- Since alfresco.war (i.e. the Platform/Repository) is already running on port 8080, we run Share.WAR on port 8081.
             If Alfresco Platform is not running, then generate a platform-jar-module and start it up. -->
         <maven.tomcat.port>8081</maven.tomcat.port>
-</properties>
+    </properties>
 
     <dependencies>
         <!-- Following dependencies are needed for compiling Java code in src/main/java -->
@@ -39,6 +39,14 @@
             <groupId>org.alfresco.surf</groupId>
             <artifactId>spring-surf-api</artifactId>
             <version>${alfresco.surf.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- ADDED -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

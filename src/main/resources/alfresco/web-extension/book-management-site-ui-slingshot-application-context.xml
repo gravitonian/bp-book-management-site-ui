@@ -28,7 +28,19 @@
       <property name="property" value="bookpub:webPublishedDate"/>
    </bean>
 
-   <!-- Check if the metadata has been updated since the last published date -->
+   <!-- Check if the metadata has been updated since the last published date.
+        Also true if the book has never been pubished before. -->
    <bean id="evaluator.doclib.indicator.isMetadataUpdated"
-         class="org.acme.bestpublishing.evaluators.CheckMetadataUpdates" />
+         class="org.acme.bestpublishing.evaluators.MetadataUpdatedEvaluator" />
+
+   <!-- Evaluator that is true if a book has been processed via workflow so content and metadata exist -->
+   <bean id="evaluator.doclib.metadata.isProcessingComplete" parent="evaluator.doclib.action.value">
+      <property name="accessor" value="node.properties.bookpub:bookProcessingComplete" />
+      <property name="comparator">
+         <bean class="org.alfresco.web.evaluator.StringEqualsComparator">
+            <property name="value" value="true" />
+         </bean>
+      </property>
+   </bean>
+
 </beans>
