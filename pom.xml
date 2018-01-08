@@ -15,8 +15,14 @@
     <parent>
         <groupId>org.acme.bestpublishing</groupId>
         <artifactId>best-publishing-parent</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.2</version>
     </parent>
+
+    <scm>
+        <connection>scm:git:https://github.com/gravitonian/bp-book-management-site-ui.git</connection>
+        <url>https://github.com/gravitonian/bp-book-management-site-ui</url>
+        <developerConnection>scm:git:https://github.com/gravitonian/bp-book-management-site-ui.git</developerConnection>
+    </scm>
 
     <properties>
 
@@ -106,6 +112,12 @@
         </testResources>
     </build>
 
+    <repositories>
+        <repository>
+            <id>local-releases</id>
+            <url>http://localhost:8081/repository/maven-releases/</url>
+        </repository>
+    </repositories>
 
 
 </project>
