@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>book-management-site-ui</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.1</version>
 
     <!-- UPDATED -->
     <name>Book Management Site UI Components</name>
@@ -21,7 +21,7 @@
         <connection>scm:git:https://github.com/gravitonian/bp-book-management-site-ui.git</connection>
         <url>https://github.com/gravitonian/bp-book-management-site-ui</url>
         <developerConnection>scm:git:https://github.com/gravitonian/bp-book-management-site-ui.git</developerConnection>
-      <tag>HEAD</tag>
+      <tag>v1.1</tag>
   </scm>
 
     <properties>
