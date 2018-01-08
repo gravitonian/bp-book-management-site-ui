@@ -30,7 +30,7 @@ import org.springframework.extensions.webscripts.connector.Response;
 
 /**
  * This evaluator checks if the book metadata has been modified after last publishing date.
- * <p/>
+ *
  * It also checks if the book has been published at all, if not that counts as metadata updated.
  *
  * @author martin.bergljung@marversolutions.org
